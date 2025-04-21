@@ -9,7 +9,6 @@ services:
     environment:
       POSTGRES_USER: highjin
       POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
-      POSTGRES_DB: index
     volumes:
       - pgdata:/var/lib/postgresql/data/
     healthcheck:
