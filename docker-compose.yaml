@@ -19,7 +19,7 @@ services:
       timeout: 5s
       retries: 5
     networks:
-      - backend
+      - infrastructure_network
 
   user_service:
     image: registry.novvs.ru/vpn-bot-user-service:latest
@@ -33,7 +33,7 @@ services:
     volumes:
       - ./environments/.env.user-service:/app/.env
     networks:
-      - backend
+      - infrastructure_network
 
   payment_service:
     image: registry.novvs.ru/vpn-bot-payment-service:latest
@@ -51,7 +51,7 @@ services:
     ports:
       - "1122:1122"
     networks:
-      - backend
+      - infrastructure_network
 
   bot_service:
     image: registry.novvs.ru/vpn-bot-bot-service:latest
@@ -65,14 +65,14 @@ services:
     volumes:
       - ./environments/.env.bot-service:/app/.env
     networks:
-      - backend
+      - infrastructure_network
   adminer:
     image: adminer
     restart: always
     ports:
       - "2233:8080"
     networks:
-      - backend
+      - infrastructure_network
 
 
 volumes:
@@ -80,5 +80,5 @@ volumes:
     driver: local
 
 networks:
-  backend:
-    driver: bridge
+  infrastructure_network:
+    external: true
