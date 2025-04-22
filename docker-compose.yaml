@@ -28,6 +28,8 @@ services:
     depends_on:
       db:
         condition: service_healthy
+    env_file:
+      - ./environments/.env.user-service
     volumes:
       - ./environments/.env.user-service:/app/.env
     networks:
@@ -58,6 +60,8 @@ services:
     depends_on:
       db:
         condition: service_healthy
+    env_file:
+      - ./environments/.env.bot-service
     volumes:
       - ./environments/.env.bot-service:/app/.env
     networks:
