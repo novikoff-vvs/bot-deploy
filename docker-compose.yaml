@@ -73,7 +73,8 @@ services:
       - "2233:8080"
     networks:
       - backend
-      -
+
+
 volumes:
   pgdata:
     driver: local
