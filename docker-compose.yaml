@@ -74,6 +74,20 @@ services:
     networks:
       - infrastructure_network
 
+  vpn_service:
+    image: registry.novvs.ru/vpn-bot-vpn-service:latest
+    container_name: bot_service
+    restart: unless-stopped
+    depends_on:
+      db:
+        condition: service_healthy
+    env_file:
+      - ./environments/.env.vpn-service
+    volumes:
+      - ./environments/.env.vpn-service:/app/.env
+    networks:
+      - infrastructure_network
+
 
 volumes:
   pgdata:
