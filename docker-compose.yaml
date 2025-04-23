@@ -76,7 +76,7 @@ services:
 
   vpn_service:
     image: registry.novvs.ru/vpn-bot-vpn-service:latest
-    container_name: bot_service
+    container_name: vpn_service
     restart: unless-stopped
     depends_on:
       db:
