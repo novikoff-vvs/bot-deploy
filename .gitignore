@@ -1,1 +1,4 @@
 .idea/
+environments/.env.bot-service
+environments/.env.user-service
+environments/.env.vpn-service
