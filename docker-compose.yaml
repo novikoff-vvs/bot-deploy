@@ -29,7 +29,7 @@ services:
       db:
         condition: service_healthy
     env_file:
-      - ./environments/.env.user-service
+      - environments/.env.user-service.example
     volumes:
       - ./environments/.env.user-service:/app/.env
     networks:
@@ -61,7 +61,7 @@ services:
       db:
         condition: service_healthy
     env_file:
-      - ./environments/.env.bot-service
+      - environments/.env.bot-service.example
     volumes:
       - ./environments/.env.bot-service:/app/.env
     networks:
@@ -82,7 +82,7 @@ services:
       db:
         condition: service_healthy
     env_file:
-      - ./environments/.env.vpn-service
+      - environments/.env.vpn-service.example
     volumes:
       - ./environments/.env.vpn-service:/app/.env
     networks:
