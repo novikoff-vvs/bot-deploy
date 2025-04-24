@@ -39,6 +39,10 @@ services:
     image: registry.novvs.ru/vpn-bot-payment-service:latest
     container_name: payment_service
     restart: unless-stopped
+    env_file:
+      - environments/.env.payment-service
+    volumes:
+      - ./environments/.env.payment-service:/app/.env
     depends_on:
       db:
         condition: service_healthy
