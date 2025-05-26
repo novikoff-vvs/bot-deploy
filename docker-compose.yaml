@@ -89,7 +89,6 @@ services:
   nats:
     image: nats
     container_name: nats
-    ports:
     command: [ "-js" ]  # Включаем JetStream (короткая опция)
     networks:
       - local
