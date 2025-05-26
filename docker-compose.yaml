@@ -86,6 +86,23 @@ services:
     networks:
       - infrastructure_network
 
+  nats:
+    image: nats
+    container_name: nats
+    ports:
+    command: [ "-js" ]  # Включаем JetStream (короткая опция)
+    networks:
+      - local
+
+  nats_ui:
+    container_name: nats_ui
+    image: ghcr.io/nats-nui/nui:latest
+    volumes:
+      - ./.docker/nui/db:/db
+      - ./.docker/nui/creds:/nats-creds:ro
+    networks:
+      - local
+
 
 volumes:
   pgdata:
