@@ -91,7 +91,7 @@ services:
     container_name: nats
     command: [ "-js" ]  # Включаем JetStream (короткая опция)
     networks:
-      - local
+      - infrastructure_network
 
   nats_ui:
     container_name: nats_ui
@@ -100,7 +100,7 @@ services:
       - ./.docker/nui/db:/db
       - ./.docker/nui/creds:/nats-creds:ro
     networks:
-      - local
+      - infrastructure_network
 
 
 volumes:
