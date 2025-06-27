@@ -89,6 +89,7 @@ services:
   nats:
     image: nats
     container_name: nats
+    restart: always
     command: [ "-js" ]  # Включаем JetStream (короткая опция)
     networks:
       - infrastructure_network
